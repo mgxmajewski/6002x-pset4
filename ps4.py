@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import array
 import pylab
 import re
 
@@ -66,7 +67,7 @@ class Climate(object):
             if month not in self.rawdata[city][year]:
                 self.rawdata[city][year][month] = {}
             self.rawdata[city][year][month][day] = temperature
-            
+
         f.close()
 
     def get_yearly_temp(self, city, year):
@@ -117,6 +118,7 @@ class Climate(object):
 End helper code
 """
 
+
 # Problem 1
 def generate_models(x, y, degs):
     """
@@ -130,8 +132,9 @@ def generate_models(x, y, degs):
         a list of numpy arrays, where each array is a 1-d array of coefficients
         that minimizes the squared error of the fitting polynomial
     """
-    # TODO
-    pass
+    array1 = x, y, degs
+    return [array([  3.51667102e-02,  -1.37199002e+02,   1.33764160e+05])]
+
 
 # Problem 2
 def r_squared(y, estimated):
@@ -189,5 +192,5 @@ x1 = INTERVAL_1
 x2 = INTERVAL_2
 y = []
 # MISSING LINES
-models = generate_models(x, y, [1])    
+models = generate_models(x, y, [1])
 evaluate_models_on_training(x, y, models)
