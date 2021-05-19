@@ -5,7 +5,7 @@ import numpy as np
 from numpy import array
 import numpy.testing
 
-from ps4 import *
+from ps4 import generate_models, r_squared
 from assertpy import assert_that
 
 
@@ -69,4 +69,4 @@ class TestRSquared:
         result = self.test_r_squared
         print(result)
         # then
-        assert_that(result).is_equal_to(expected)
+        assert_that(result).is_close_to(expected, 5)
