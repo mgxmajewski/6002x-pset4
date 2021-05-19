@@ -184,8 +184,24 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    x_arr = np.array(x)
+    y_arr = np.array(y)
+    for model in models:
+        a = model[0]
+        b = model[1]
+        plt.figure(1)
+        print(y_arr)
+        plt.title('Average temperatures' + '\n' + 'observed in 21 U.S. cities')
+        plt.xlabel('Years')
+        plt.ylabel('Temperatures')
+        plt.plot(x_arr, y_arr, 'bo')
+        predicted_values = a * x_arr + b
+        r_sqr = r_squared(y_arr, predicted_values)
+        plt.plot(x_arr, predicted_values, 'r-', label=f'R^2:{r_sqr:.3f}')
+        print(predicted_values)
+        plt.legend(loc='best')
+        plt.show()
+
 
 
 # ### Begining of program
