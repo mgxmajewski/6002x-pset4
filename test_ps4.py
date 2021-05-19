@@ -19,10 +19,8 @@ class TestGenerateModels:
     # given
     correct_output1 = [array([3.51667102e-02, -1.37199002e+02, 1.33764160e+05])]
 
-
     # Wrap correct output and given (x, y, degs) params for @pytest.mark.parametrize decorator
     given1 = [1900, 1901, 1902, 1904, 2000], [32.0, 42.0, 31.3, 22.0, 33.0], [2], correct_output1
-
 
     @pytest.mark.parametrize('x, y, degs, expected', [given1])
     def test_generate_models(self, expected):
@@ -51,7 +49,6 @@ class TestRSquared:
     given2 = [4.4, 5.5, 6.6], [4.4, 5.5, 6.6], correct_output2
     given3 = [-3.1, -4.1, -9.2, 10.1], [-2.1, -6.1, 9.2, 20.1], correct_output3
     given4 = [-3.1, -4.1, -9.2, 10.1, 9.1, 4.5], [-1.1, -2.1, -7.2, 11.1, 11.1, 5.5], correct_output4
-
 
     @pytest.mark.parametrize('y, estimated, expected', [given1, given2, given3, given4])
     def test_r_squared(self, expected):
